@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accounting.ViewModels", "Ac
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accounting.Business", "Accounting.Business\Accounting.Business.csproj", "{2000BF7F-2503-4EF5-BADD-E0E3ADAED44F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accounting.Utility", "Accounting.Utility\Accounting.Utility.csproj", "{2F9761D3-BC1C-47DF-A162-B725189076FC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{2000BF7F-2503-4EF5-BADD-E0E3ADAED44F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2000BF7F-2503-4EF5-BADD-E0E3ADAED44F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2000BF7F-2503-4EF5-BADD-E0E3ADAED44F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F9761D3-BC1C-47DF-A162-B725189076FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F9761D3-BC1C-47DF-A162-B725189076FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F9761D3-BC1C-47DF-A162-B725189076FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F9761D3-BC1C-47DF-A162-B725189076FC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
