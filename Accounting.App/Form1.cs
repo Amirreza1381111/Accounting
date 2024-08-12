@@ -10,11 +10,17 @@ using System.Windows.Forms;
 
 namespace Accounting.App
 {
-    public partial class Form1 : Form
+    public partial class Mainfrm : Form
     {
-        public Form1()
+        public Mainfrm()
         {
             InitializeComponent();
+        }
+
+        private void Customersbtn_Click(object sender, EventArgs e)
+        {
+            Customersfrm customer_form = new Customersfrm();
+            customer_form.ShowDialog();
         }
     }
 }

@@ -8,6 +8,7 @@ namespace Accounting.DataLayer.repositories
 {
     public interface ICustomerRepository
     {
+        IEnumerable<Customers> GetCustomersByFilter(string parameter);
         List<Customers> GetAllCustomers();
         Customers GetCustomerById(int customerId);
         bool InsertCustomer(Customers customer);
