@@ -22,5 +22,10 @@ namespace Accounting.App
             Customersfrm customer_form = new Customersfrm();
             customer_form.ShowDialog();
         }
+
+        private void Mainfrm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

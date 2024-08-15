@@ -72,6 +72,7 @@ namespace Accounting.App
             this.AddCustomertsb.Size = new System.Drawing.Size(102, 64);
             this.AddCustomertsb.Text = "افزودن شخص";
             this.AddCustomertsb.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.AddCustomertsb.Click += new System.EventHandler(this.AddCustomertsb_Click);
             // 
             // EditCustomertsb
             // 
@@ -82,6 +83,7 @@ namespace Accounting.App
             this.EditCustomertsb.Size = new System.Drawing.Size(105, 64);
             this.EditCustomertsb.Text = "ویرایش شخص";
             this.EditCustomertsb.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.EditCustomertsb.Click += new System.EventHandler(this.EditCustomertsb_Click);
             // 
             // DeleteCustomertsb
             // 
@@ -92,6 +94,7 @@ namespace Accounting.App
             this.DeleteCustomertsb.Size = new System.Drawing.Size(91, 64);
             this.DeleteCustomertsb.Text = "حذف شخص";
             this.DeleteCustomertsb.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.DeleteCustomertsb.Click += new System.EventHandler(this.DeleteCustomertsb_Click);
             // 
             // RefrshCustomerstsb
             // 
