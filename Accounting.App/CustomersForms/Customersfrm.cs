@@ -14,12 +14,11 @@ namespace Accounting.App
 {
     public partial class Customersfrm : Form
     {
+        UnitOfWork db = new UnitOfWork();
+
         public void BindGrid()
         {
-            using (UnitOfWork db = new UnitOfWork())
-            {
-                Customersdgv.DataSource = db.CustomerRepository.GetAllCustomers().ToList();
-            }
+            Customersdgv.DataSource = db.CustomerRepository.GetAllCustomers().ToList();
         }
 
         public Customersfrm()
@@ -34,10 +33,7 @@ namespace Accounting.App
 
         private void SearchCustomertstb_TextChanged(object sender, EventArgs e)
         {
-            using (UnitOfWork db = new UnitOfWork())
-            {
-                Customersdgv.DataSource = db.CustomerRepository.GetCustomersByFilter(SearchCustomertstb.Text).ToList();
-            }
+            Customersdgv.DataSource = db.CustomerRepository.GetCustomersByFilter(SearchCustomertstb.Text).ToList();
         }
 
         private void SearchCustomertstb_Click(object sender, EventArgs e)
@@ -67,12 +63,10 @@ namespace Accounting.App
                 string fullname = Customersdgv.CurrentRow.Cells[1].Value.ToString();
                 if (RtlMessageBox.Show($"آیا از حذف {fullname} مطمئن هستید؟", "توجه", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
-                    using (UnitOfWork db = new UnitOfWork())
-                    {
-                        int customerid = int.Parse(Customersdgv.CurrentRow.Cells[0].Value.ToString());
-                        db.CustomerRepository.DeleteCustomer(customerid);
-                        db.Save();
-                    }
+                    int customerid = int.Parse(Customersdgv.CurrentRow.Cells[0].Value.ToString());
+                    db.CustomerRepository.DeleteCustomer(customerid);
+                    db.Save();
+
                     BindGrid();
                 }
             }
@@ -90,6 +84,7 @@ namespace Accounting.App
                 int customerid = int.Parse(Customersdgv.CurrentRow.Cells[0].Value.ToString());
                 editfrm.customerid = customerid;
                 editfrm.ShowDialog();
+                BindGrid();
             }
         }
     }

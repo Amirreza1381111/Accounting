@@ -16,6 +16,8 @@ namespace Accounting.App.CustomersForms
 {
     public partial class AddOrEditCustomerfrm : Form
     {
+        UnitOfWork db = new UnitOfWork();
+
         public int customerid = 0;
 
         public AddOrEditCustomerfrm()
@@ -30,29 +32,37 @@ namespace Accounting.App.CustomersForms
 
         private void Savebtn_Click(object sender, EventArgs e)
         {
-            string ImageName = Guid.NewGuid().ToString() + Path.GetExtension(PcCustomerpb.ImageLocation);
-            string path = Application.StartupPath + "/Images/";
-            if (!Directory.Exists(path))
-            {
-                Directory.CreateDirectory(path);
-            }
-            PcCustomerpb.Image.Save(path + ImageName);
-
             if (BaseValidator.IsFormValid(this.components))
             {
+                string ImageName = Guid.NewGuid().ToString() + Path.GetExtension(PcCustomerpb.ImageLocation);
+                string path = Application.StartupPath + "/Images/";
+
+                if (!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
+                }
+                PcCustomerpb.Image.Save(path + ImageName);
+
                 Customers customer = new Customers
                 {
                     FullName = FullNametxb.Text,
                     Mobile = Mobiletxb.Text,
                     Email = Emailtxb.Text,
                     Address = Addresstxb.Text,
-                    CustomerImage = "NoPhoto.jpg",
+                    CustomerImage = ImageName,
                 };
-                using (UnitOfWork db = new UnitOfWork())
+
+                if (customerid == 0)
                 {
                     db.CustomerRepository.InsertCustomer(customer);
-                    db.Save();
                 }
+                else
+                {
+                    customer.CustomerID = customerid;
+                    db.CustomerRepository.UpdateCustomer(customer);
+                }
+                db.Save();
+
                 DialogResult = DialogResult.OK;
             }
         }
@@ -68,18 +78,16 @@ namespace Accounting.App.CustomersForms
 
         private void AddOrEditCustomerfrm_Load(object sender, EventArgs e)
         {
-            using (UnitOfWork db = new UnitOfWork())
+            if (customerid != 0)
             {
-                if (customerid != 0)
-                {
-                    this.Text = "ویرایش شخص";
-                    this.Savebtn.Text = "ویرایش";
-                    var customer = db.CustomerRepository.GetCustomerById(customerid);
-                    this.FullNametxb.Text = customer.FullName;
-                    this.Mobiletxb.Text = customer.Mobile;
-                    this.Emailtxb.Text = customer.Email;
-                    this.Addresstxb.Text = customer.Address;
-                }
+                this.Text = "ویرایش شخص";
+                this.Savebtn.Text = "ویرایش";
+                var customer = db.CustomerRepository.GetCustomerById(customerid);
+                this.FullNametxb.Text = customer.FullName;
+                this.Mobiletxb.Text = customer.Mobile;
+                this.Emailtxb.Text = customer.Email;
+                this.Addresstxb.Text = customer.Address;
+                PcCustomerpb.ImageLocation = Application.StartupPath + "/Images/" + customer.CustomerImage;
             }
         }
     }
