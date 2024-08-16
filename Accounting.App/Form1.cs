@@ -27,5 +27,10 @@ namespace Accounting.App
         {
 
         }
+
+        private void AddAccountingtsb_Click(object sender, EventArgs e)
+        {
+            Accou accounting_form = new Accountingfrm();
+        }
     }
 }

@@ -52,6 +52,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccountingForms\Accountingfrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AccountingForms\Accountingfrm.Designer.cs">
+      <DependentUpon>Accountingfrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomersForms\AddOrEditCustomerfrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +108,9 @@
     <Compile Include="Validator\RequiredFieldValidator.designer.cs">
       <DependentUpon>RequiredFieldValidator.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AccountingForms\Accountingfrm.resx">
+      <DependentUpon>Accountingfrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CustomersForms\AddOrEditCustomerfrm.resx">
       <DependentUpon>AddOrEditCustomerfrm.cs</DependentUpon>
     </EmbeddedResource>

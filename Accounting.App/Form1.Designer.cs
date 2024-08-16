@@ -31,6 +31,7 @@ namespace Accounting.App
         {
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.Customersbtn = new System.Windows.Forms.ToolStripButton();
+            this.AddAccountingtsb = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -38,7 +39,8 @@ namespace Accounting.App
             // 
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.Customersbtn});
+            this.Customersbtn,
+            this.AddAccountingtsb});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(782, 67);
@@ -56,6 +58,17 @@ namespace Accounting.App
             this.Customersbtn.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
             this.Customersbtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Customersbtn.Click += new System.EventHandler(this.Customersbtn_Click);
+            // 
+            // AddAccountingtsb
+            // 
+            this.AddAccountingtsb.Image = global::Accounting.App.Properties.Resources._1370791030_credit_card;
+            this.AddAccountingtsb.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.AddAccountingtsb.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.AddAccountingtsb.Name = "AddAccountingtsb";
+            this.AddAccountingtsb.Size = new System.Drawing.Size(92, 64);
+            this.AddAccountingtsb.Text = "تراکنش جدید";
+            this.AddAccountingtsb.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.AddAccountingtsb.Click += new System.EventHandler(this.AddAccountingtsb_Click);
             // 
             // Mainfrm
             // 
@@ -81,6 +94,7 @@ namespace Accounting.App
 
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton Customersbtn;
+        private System.Windows.Forms.ToolStripButton AddAccountingtsb;
     }
 }
 

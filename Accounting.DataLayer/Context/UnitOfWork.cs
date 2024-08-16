@@ -8,9 +8,9 @@ using Accounting.DataLayer.Services;
 
 namespace Accounting.DataLayer.Context
 {
-    public class UnitOfWork: IDisposable
+    public class UnitOfWork : IDisposable
     {
-        Accounting_DBEntities db = new Accounting_DBEntities();
+        Accounting_DBEntities _db = new Accounting_DBEntities();
 
         ICustomerRepository _customerRepository;
 
@@ -20,21 +20,35 @@ namespace Accounting.DataLayer.Context
             {
                 if (_customerRepository == null)
                 {
-                    _customerRepository = new CustomerRepository(db);
+                    _customerRepository = new CustomerRepository(_db);
                 }
 
                 return _customerRepository;
             }
         }
 
+        GenericRepository<AccountingTable> _accountingRepository;
+
+        public GenericRepository<AccountingTable> AccountingRepository
+        {
+            get
+            {
+                if (_accountingRepository == null)
+                {
+                    _accountingRepository = new GenericRepository<AccountingTable>(_db);
+                }
+                return _accountingRepository;
+            }
+        }
+
         public void Save()
         {
-            db.SaveChanges();
+            _db.SaveChanges();
         }
 
         public void Dispose()
         {
-            db.Dispose();
+            _db.Dispose();
         }
     }
 }
