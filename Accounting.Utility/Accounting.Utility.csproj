@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="convertors\DateConvertor.cs" />
     <Compile Include="convertors\RtlMessageBox.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

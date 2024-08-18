@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Accounting.DataLayer.repositories;
 using System.Data.Entity;
+using Accounting.ViewModels.Customers;
 
 namespace Accounting.DataLayer.Services
 {
@@ -90,6 +91,25 @@ namespace Accounting.DataLayer.Services
         public IEnumerable<Customers> GetCustomersByFilter(string parameter)
         {
             return _db.Customers.Where(c => c.FullName.Contains(parameter) || c.Mobile.Contains(parameter) || c.Email.Contains(parameter)).ToList();
+        }
+
+        public List<ListCustomerViewModel> GetNameCustomers(string filter = "")
+        {
+            if (filter == "")
+            {
+                return _db.Customers.Select(c => new ListCustomerViewModel {CustomerID=c.CustomerID, FullName=c.FullName }).ToList();
+            }
+            return _db.Customers.Where(c => c.FullName.Contains(filter)).Select(c => new ListCustomerViewModel { CustomerID = c.CustomerID, FullName = c.FullName }).ToList();
+        }
+
+        public int GetCustomerIDByName(string name)
+        {
+            return _db.Customers.First(c => c.FullName == name).CustomerID;
+        }
+
+        public string GetCustomerNameById(int customerId)
+        {
+            return _db.Customers.First(c => c.CustomerID == customerId).FullName;
         }
     }
 }

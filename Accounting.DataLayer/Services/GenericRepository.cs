@@ -10,8 +10,8 @@ namespace Accounting.DataLayer.Services
 {
     public class GenericRepository<TEntity> where TEntity: class
     {
-        private Accounting_DBEntities _db;
-        private DbSet<TEntity> _dbSet;
+        Accounting_DBEntities _db;
+        DbSet<TEntity> _dbSet;
 
         public GenericRepository(Accounting_DBEntities db)
         {
@@ -37,6 +37,11 @@ namespace Accounting.DataLayer.Services
         }
 
         public virtual void Insert(TEntity entity)
+        {
+            _dbSet.Add(entity);
+        }
+
+        public virtual void Update(TEntity entity)
         {
             _dbSet.Attach(entity);
             _db.Entry(entity).State = EntityState.Modified;

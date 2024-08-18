@@ -52,10 +52,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccountingForms\Accountingfrm.cs">
+    <Compile Include="Accounting\AccountingReportsfrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AccountingForms\Accountingfrm.Designer.cs">
+    <Compile Include="Accounting\AccountingReportsfrm.Designer.cs">
+      <DependentUpon>AccountingReportsfrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomersForms\Accountingfrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomersForms\Accountingfrm.Designer.cs">
       <DependentUpon>Accountingfrm.cs</DependentUpon>
     </Compile>
     <Compile Include="CustomersForms\AddOrEditCustomerfrm.cs">
@@ -75,6 +81,12 @@
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login\Loginfrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login\Loginfrm.Designer.cs">
+      <DependentUpon>Loginfrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -108,7 +120,10 @@
     <Compile Include="Validator\RequiredFieldValidator.designer.cs">
       <DependentUpon>RequiredFieldValidator.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AccountingForms\Accountingfrm.resx">
+    <EmbeddedResource Include="Accounting\AccountingReportsfrm.resx">
+      <DependentUpon>AccountingReportsfrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomersForms\Accountingfrm.resx">
       <DependentUpon>Accountingfrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomersForms\AddOrEditCustomerfrm.resx">
@@ -119,6 +134,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\Loginfrm.resx">
+      <DependentUpon>Loginfrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -206,10 +224,16 @@
       <Project>{2f9761d3-bc1c-47df-a162-b725189076fc}</Project>
       <Name>Accounting.Utility</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Accounting.ViewModels\Accounting.ViewModels.csproj">
+      <Project>{6d05f75f-84b4-442d-ac1e-c05e2e04b0f3}</Project>
+      <Name>Accounting.ViewModels</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\images.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Untitled-1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
