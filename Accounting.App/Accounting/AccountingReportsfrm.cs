@@ -144,5 +144,27 @@ namespace Accounting.App.Accounting
         {
             Filter();
         }
+
+        private void Printtsb_Click(object sender, EventArgs e)
+        {
+            DataTable dtPrint = new DataTable();
+            dtPrint.Columns.Add("Customer");
+            dtPrint.Columns.Add("Amount");
+            dtPrint.Columns.Add("Date");
+            dtPrint.Columns.Add("Description");
+
+            foreach (DataGridViewRow item in Reportdgv.Rows)
+            {
+                dtPrint.Rows.Add(
+                    item.Cells[2].Value.ToString(),
+                    item.Cells[3].Value.ToString(),
+                    item.Cells[4].Value.ToString(),
+                    item.Cells[5].Value.ToString()
+                    );
+            }
+            stiPrint.Load(Application.StartupPath + "/Report.mrt");
+            stiPrint.RegData("DT", dtPrint);
+            stiPrint.Show();
+        }
     }
 }

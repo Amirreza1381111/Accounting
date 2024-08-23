@@ -34,9 +34,9 @@ namespace Accounting.App.Login
             this.UserNamelbl = new System.Windows.Forms.Label();
             this.Passwordlbl = new System.Windows.Forms.Label();
             this.Loggb = new System.Windows.Forms.GroupBox();
-            this.Usernametxb = new System.Windows.Forms.TextBox();
-            this.Passwordtxb = new System.Windows.Forms.TextBox();
             this.Logbtn = new System.Windows.Forms.Button();
+            this.Passwordtxb = new System.Windows.Forms.TextBox();
+            this.Usernametxb = new System.Windows.Forms.TextBox();
             this.UserNameValidator = new ValidationComponents.RequiredFieldValidator(this.components);
             this.Passwordvalidator = new ValidationComponents.RequiredFieldValidator(this.components);
             this.Loggb.SuspendLayout();
@@ -73,20 +73,6 @@ namespace Accounting.App.Login
             this.Loggb.TabIndex = 2;
             this.Loggb.TabStop = false;
             // 
-            // Usernametxb
-            // 
-            this.Usernametxb.Location = new System.Drawing.Point(6, 19);
-            this.Usernametxb.Name = "Usernametxb";
-            this.Usernametxb.Size = new System.Drawing.Size(261, 23);
-            this.Usernametxb.TabIndex = 2;
-            // 
-            // Passwordtxb
-            // 
-            this.Passwordtxb.Location = new System.Drawing.Point(18, 62);
-            this.Passwordtxb.Name = "Passwordtxb";
-            this.Passwordtxb.Size = new System.Drawing.Size(261, 23);
-            this.Passwordtxb.TabIndex = 3;
-            // 
             // Logbtn
             // 
             this.Logbtn.AutoSize = true;
@@ -96,6 +82,22 @@ namespace Accounting.App.Login
             this.Logbtn.TabIndex = 4;
             this.Logbtn.Text = "ورود";
             this.Logbtn.UseVisualStyleBackColor = true;
+            this.Logbtn.Click += new System.EventHandler(this.Logbtn_Click);
+            // 
+            // Passwordtxb
+            // 
+            this.Passwordtxb.Location = new System.Drawing.Point(18, 62);
+            this.Passwordtxb.Name = "Passwordtxb";
+            this.Passwordtxb.PasswordChar = '*';
+            this.Passwordtxb.Size = new System.Drawing.Size(261, 23);
+            this.Passwordtxb.TabIndex = 3;
+            // 
+            // Usernametxb
+            // 
+            this.Usernametxb.Location = new System.Drawing.Point(6, 19);
+            this.Usernametxb.Name = "Usernametxb";
+            this.Usernametxb.Size = new System.Drawing.Size(261, 23);
+            this.Usernametxb.TabIndex = 2;
             // 
             // UserNameValidator
             // 

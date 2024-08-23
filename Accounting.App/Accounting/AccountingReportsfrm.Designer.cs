@@ -49,6 +49,7 @@ namespace Accounting.App.Accounting
             this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Datetime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stiPrint = new Stimulsoft.Report.StiReport();
             this.toolStrip1.SuspendLayout();
             this.Filtergb.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Reportdgv)).BeginInit();
@@ -110,6 +111,7 @@ namespace Accounting.App.Accounting
             this.Printtsb.Size = new System.Drawing.Size(44, 64);
             this.Printtsb.Text = "چاپ";
             this.Printtsb.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.Printtsb.Click += new System.EventHandler(this.Printtsb_Click);
             // 
             // Filtergb
             // 
@@ -265,6 +267,27 @@ namespace Accounting.App.Accounting
             this.Description.Name = "Description";
             this.Description.ReadOnly = true;
             // 
+            // stiPrint
+            // 
+            this.stiPrint.CookieContainer = null;
+            this.stiPrint.EngineVersion = Stimulsoft.Report.Engine.StiEngineVersion.EngineV2;
+            this.stiPrint.ReferencedAssemblies = new string[] {
+        "System.Dll",
+        "System.Drawing.Dll",
+        "System.Windows.Forms.Dll",
+        "System.Data.Dll",
+        "System.Xml.Dll",
+        "Stimulsoft.Controls.Dll",
+        "Stimulsoft.Base.Dll",
+        "Stimulsoft.Report.Dll"};
+            this.stiPrint.ReportAlias = "Report";
+            this.stiPrint.ReportGuid = "1699d79c09034cbfba72bbf9ba93b1a1";
+            this.stiPrint.ReportName = "Report";
+            this.stiPrint.ReportSource = null;
+            this.stiPrint.ReportUnit = Stimulsoft.Report.StiReportUnitType.Inches;
+            this.stiPrint.ScriptLanguage = Stimulsoft.Report.StiReportLanguageType.CSharp;
+            this.stiPrint.UseProgressInThread = false;
+            // 
             // AccountingReportsfrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -312,5 +335,6 @@ namespace Accounting.App.Accounting
         private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
         private System.Windows.Forms.DataGridViewTextBoxColumn Datetime;
         private System.Windows.Forms.DataGridViewTextBoxColumn Description;
+        private Stimulsoft.Report.StiReport stiPrint;
     }
 }
